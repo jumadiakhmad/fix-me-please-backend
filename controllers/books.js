@@ -1,4 +1,4 @@
-
+var Book = require('../models/Book');
 module.exports = {
   all: function(req, res) {
     Book.find(function (err, books) {
@@ -10,7 +10,7 @@ module.exports = {
   },
   create: function(req, res) {
     var book = new Book(req.body);
-    book.save(function (err, result) {
+    Book.save(function (err, result) {
       if (err) {
         res.send({err: err})
       }
